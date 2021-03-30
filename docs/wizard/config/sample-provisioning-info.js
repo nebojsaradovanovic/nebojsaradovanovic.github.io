@@ -34,13 +34,13 @@ let sample = {
     'app-instance': [
         {
             'name': 'Agent Widget',
-            'url': 'https://github.com/nebojsaradovanovic/premiumapp-test/index.html?lang={{pcLangTag}}&environment={{pcEnvironment}}',
+            'url': 'https://mypurecloud.github.io/purecloud-premium-app/index.html?lang={{pcLangTag}}&environment={{pcEnvironment}}',
             'type': 'widget',
             'groups': ['Agents', 'Supervisors']
         },
         {
             'name': 'Supervisor Widget',
-            'url': 'https://github.com/nebojsaradovanovic/premiumapp-test/supervisor.html?lang={{pcLangTag}}&environment={{pcEnvironment}}',
+            'url': 'https://mypurecloud.github.io/purecloud-premium-app/supervisor.html?lang={{pcLangTag}}&environment={{pcEnvironment}}',
             'type': 'standalone',
             'groups': ['Supervisors']
         }
