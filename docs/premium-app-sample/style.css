@@ -3,7 +3,7 @@ html {
 }
 
 .jumbotron {
-    background-image: linear-gradient( to right, #4592b1, #0400ff);
+    background-image: linear-gradient( to right, #4592b1, #97140b);
     padding: 1rem !important;
     margin-bottom: 10px !important;
   }
