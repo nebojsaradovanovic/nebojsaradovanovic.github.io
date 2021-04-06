@@ -122,8 +122,8 @@ button {
 }
 
 .btn-info {
-    background-color:#FF4F1F; 
-    border: 1px solid #FF4F1F;
+    background-color:#4592b1; 
+    border: 1px solid #4592b1;
     border-radius:25px; 
     color: #FDFDFD; 
     border-width: 2px
@@ -131,9 +131,9 @@ button {
 
 .btn-info:hover, .btn-info:focus {
     background-color:white; 
-    border: 1px solid #FF4F1F;
+    border: 1px solid #4592b1;
     border-radius:25px; 
-    color: #FF4F1F; 
+    color: #4592b1; 
     border-width: 2px
 }
 
@@ -148,7 +148,7 @@ button {
 /* Modal */
 .adjust-text {
    /* margin-top: -100px; */
-    color: #FF4F1F;
+    color: #4592b1;
     font-size-adjust: unset;
 }
 
@@ -211,12 +211,12 @@ button {
 }
 
 .progress-bar li.active::before {
-    color: #FF4F1F;
+    color: #4592b1;
     content: '✔';
 }
 
 .progress-bar li.active:before {
-    border-color: #FF4F1F;
+    border-color: #4592b1;
 }
 
 .progress-bar li.active + li:after {
@@ -228,7 +228,7 @@ button {
     font-size: 2em;
     font-weight: bold;
     text-align: center;
-    color: #FF4F1F;
+    color: #4592b1;
     font-family: "Roboto","Lato", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
 }
 
@@ -246,7 +246,7 @@ button {
     font-size: 1em;
     font-weight: bold;
     text-align: left;
-    background-color: #FF4F1F; 
+    background-color: #4592b1; 
 }
 
 .message-content {

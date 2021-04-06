@@ -32,10 +32,10 @@ export default {
     setupPermissionsRequired: ['admin'],
 
     // Enable Custome Setup Page
-    enableCustomSetup: true,
+    enableCustomSetup: false,
 
     // To be added to names of Genesys Cloud objects created by the wizard
-    prefix: 'LOCAL_PREMIUM_EXAMPLE_',
+    prefix: 'StarTelecom_',
 
     // These are the Genesys Cloud items that will be added and provisioned by the wizard
     provisioningInfo: {
@@ -51,48 +51,6 @@ export default {
                         'allowConditions': false
                     }
                 ]
-            }
-        ],
-        'app-instance': [
-            {
-                'name': 'Partner Enablement Tools',
-                'url': 'https://genesysappfoundry.github.io/partner-enablement-tools/index.html?language={{pcLangTag}}&environment={{pcEnvironment}}',
-                'type': 'standalone',
-                'groups': []
-            }
-        ],
-        'interaction-widget': [
-            {
-                'name': 'Interaction Widget',
-                'url': 'https://app-website.com/?conversationid={{pcConversationId}}&lang={{pcLangTag}}&environment={{pcEnvironment}}',
-                'groups': [],
-                'communicationTypeFilter': 'chat, call, email'
-            }
-        ],
-        'oauth-client': [
-            {
-                'name': 'OAuth Client',
-                'description': 'Generated Client that\'s passed to the App Backend',
-                'roles': ['Role'],
-                'authorizedGrantType': 'CLIENT_CREDENTIALS',
-
-                /**
-                 * This function is for other processing that needs
-                 * to be done after creating an object.
-                 * 'finally' is available for all the other
-                 * resources configured in this config file.
-                 * NOTE: Finally functions must return a Promise.
-                 * For Client Credentials, normally it means
-                 * passing the details to the backend.
-                 * @param {Object} installedData the Genesys Cloud resource created
-                 * @returns {Promise}    
-                 */
-                'finally': function(installedData){
-                    return new Promise((resolve, reject) => {
-                        console.log('Fake Sending Credentials...');
-                        setTimeout(() => resolve(), 2000);
-                    });
-                }
             }
         ]
     }
