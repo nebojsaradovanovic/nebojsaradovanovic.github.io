@@ -46,7 +46,7 @@ export default {
                 'permissionPolicies': [
                     {
                         'domain': 'integration',
-                        'entityName': 'examplePremiumApp',
+                        'entityName': 'starTelecomApp',
                         'actionSet': ['*'],
                         'allowConditions': false
                     }
