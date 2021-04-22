@@ -6,8 +6,8 @@ export default {
 
     // The actual URL of the landing page of your web app.
     // 'premiumAppURL': 'http://localhost:8080/premium-app-sample/index.html',
-    //premiumAppURL: 'https://nebojsaradovanovic.github.io/docs/premium-app-sample/index.html',
-    premiumAppURL: 'https://www.startelecom.ca/genesys-cloud-contact-centre/',
+    premiumAppURL: 'https://nebojsaradovanovic.github.io/docs/premium-app-sample/index.html',
+    //premiumAppURL: 'https://www.startelecom.ca/genesys-cloud-contact-centre/',
 
     // Genesys Cloud assigned name for the premium app
     // This should match the integration type name of the Premium App
