@@ -112,7 +112,30 @@
 							maxlength: '100',
 							placeholder: 'Optional',
 							label: 'Postal Code'
-						}
+						},
+            {
+            id:"cx_webchat_form_enquirytype",
+            name:"enquirytype",
+            type:"select",
+            label:"Enquiry Type",
+            options:[
+                {
+                    text:"Known Outage",
+                    value:"Known Outage",
+                    group:true
+                },
+                {
+                    text:"Unknown Outage",
+                    value:"Unknown Outage",
+                    selected:true
+                },
+                {
+                    text:"Outage",
+                    value:"Outage"
+                }
+                
+              ]
+            }
 						//{
 							//id: 'cx_webchat_form_email',
 						//	name: 'email',
