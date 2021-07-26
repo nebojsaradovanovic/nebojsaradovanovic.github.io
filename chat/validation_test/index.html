@@ -97,7 +97,21 @@
 							name: 'firstname',
 							maxlength: '100',
 							placeholder: 'Optional',
-							label: 'Firstname'
+							label: 'Firstname',
+              validate: function (event, form, input, label, $, CXBus, Common) {
+                    if (input) {
+                        if (input.val() && input[0].checked) {
+                            label[0].innerHTML = "I agree that chats may be monitored and used for training purposes";
+                            return true;
+                        } else {
+                            label[0].innerHTML = "<span style=\"color:red\">I agree that chats may be monitored and used for training purposes</span>";
+                            return false;
+                        }
+                    } else {
+                        // first load
+                        return false;
+                    }
+                }
 						},
 						//{
 							//id: 'cx_webchat_form_lastname',
@@ -142,7 +156,7 @@
                 "placeholder": "Custom data placeholder",
                 "label": "I agree that chats may be monitored and used for training purposes",
                 "value": "SomeCoolData",
-                "type": "text",
+                "type": "checkbox",
                 "checked": false,
                 "validate": function (event, form, input, label, $, CXBus, Common) {
                     if (input) {
