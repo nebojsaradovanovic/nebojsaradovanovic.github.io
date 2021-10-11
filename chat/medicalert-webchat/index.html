@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>MedicAlert WebChat Demo</title>
   <link rel="stylesheet" type="text/css" href="styles.css" />
+  <script src="https://apps.mypurecloud.com/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.com/widgets/9.0/plugins/'}); CXBus.loadFile('path/to/widgets.config.js').done(function(){CXBus.loadPlugin('widgets-core')});"></script>
 </head>
 
 <body  class="startelecom-custom">
@@ -189,6 +190,6 @@
 			};
 		}
 	</script>
-	<button type="button" id="chat-button" onclick="customPlugin.command('WebChat.open', getAdvancedConfig());">Start Chat (with data)</button>
+	
 </body>
 </html>
