@@ -41,6 +41,7 @@
 .startelecom-custom .cx-widget.cx-theme-light .cx-titlebar .cx-icon svg * {
 
     fill:white;
+    opacity:0;
     
     
 }
