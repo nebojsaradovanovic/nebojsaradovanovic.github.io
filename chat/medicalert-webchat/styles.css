@@ -43,13 +43,23 @@
     width: 30px;
     height: 30px;
     fill:white;
+    background-image: url(chat.svg);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    
+    
+}
+
+.startelecom-custom .cx-widget.cx-theme-light .cx-titlebar .cx-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
     background-image: url(YJWdW201.svg);
     background-size: 30px 30px;
     background-repeat: no-repeat;
     
     
 }
-
 /* Changes primary buttons to TH brand green */
 .startelecom-custom .cx-widget.cx-theme-light .cx-btn-primary {
     background-color: #470000;
