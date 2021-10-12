@@ -59,12 +59,13 @@
     top: auto;
     bottom: 20px;
     right: 60px;
-    transform: none;
+    transform: rotate(0deg);
     -webkit-transform: none;
     -moz-transform: none;
     -ms-transform: none;
     -o-transform: none;
 }
+
 
 /* Hides Genesys logo when in active chat screen */
 .startelecom-custom .cx-webchat.cx-theme-light .cx-menu .cx-branding-icon svg * {
