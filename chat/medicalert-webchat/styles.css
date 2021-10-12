@@ -42,19 +42,12 @@
     display: inline-block;
     width: 30px;
     height: 30px;
+    fill:white;
     background-image: url(YJWdW201.svg);
     background-size: 30px 30px;
     background-repeat: no-repeat;
     
-}
-
-.startelecom-custom .cx-widget svg:not(:root) {
-    overflow: hidden;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    background-image: url(YJWdW201.svg);
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
+    
 }
 
 /* Changes primary buttons to TH brand green */
