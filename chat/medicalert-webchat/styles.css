@@ -10,13 +10,13 @@
 
 /* Sets SVG icons (chat, robot) to TH green */
 .startelecom-custom .cx-widget.cx-theme-light .cx-svg-icon-tone1 {
-    fill: #005D55;
+    fill: #470000;
 }
 
 /* Sets titlebarr*/
 .startelecom-custom .cx-widget.cx-theme-light .cx-titlebar .cx-title {
-    fill: #005D55;
-    color: #005D55;
+    fill: #470000;
+    color: #470000;
 }
 
 /* Removes fuzziness issue of bold font weight */
@@ -40,16 +40,16 @@
 
 /* Changes primary buttons to TH brand green */
 .startelecom-custom .cx-widget.cx-theme-light .cx-btn-primary {
-    background-color: #005D55;
-    background: linear-gradient(0deg, #005D55, #005D55);
-    border-color: #005D55 !important;
+    background-color: #470000;
+    background: linear-gradient(0deg, #470000, #470000);
+    border-color: #470000 !important;
 }
 
 /* Changes primary buttons to TH brand yellow */
 .startelecom-custom .cx-widget.cx-theme-light .cx-btn-default {
-    background-color: #EEAF30;
-    background: linear-gradient(0deg, #EEAF30, #EEAF30);
-    border-color: #EEAF30 !important;
+    background-color: #c50000;
+    background: linear-gradient(0deg, #c50000, #c50000);
+    border-color: #c50000 !important;
 }
 
 /* Positions chat overlay tab to bottom right of screen */
