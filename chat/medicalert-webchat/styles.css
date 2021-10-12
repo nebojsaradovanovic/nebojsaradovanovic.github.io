@@ -52,11 +52,18 @@
 }
 
 /* Positions chat overlay tab to bottom right of screen */
-.startelecom-custom .cx-side-button-group {
-    transform: rotate(0deg);
-    bottom: 0;
-    right: 5%;
+.startelecom-custom .cx-widget.th-theme .cx-side-button-group {
+    position: fixed;
+    width: 60px;
+    height: 60px;
     top: auto;
+    bottom: 20px;
+    right: 60px;
+    transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
 }
 
 
