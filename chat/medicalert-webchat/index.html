@@ -1,197 +1,113 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <title>MedicAlert WebChat Demo</title>
+  <title>Genesys Cloud WebChat Demo</title>
   <link rel="stylesheet" type="text/css" href="styles.css" />
-  
 </head>
 
-<body  class="startelecom-custom">
+<!-- Declaring a class on the body to have higher-specificity in our CSS Selectors -->
 
-  <!--Create a Widgets configuration object-->
-  <script type="text/javascript">
-
+<body class="startelecom-custom">
+  <script>
     window._genesys = {
-      widgets: {
+      "widgets": {
         "main": {
+          // Pre-load the webchat
+          "preload": ['webchat'],
           // Set theme to provided Genesys light theme
           "theme": "light"
-        
         },
-        webchat: {
-             autoInvite: {
-
-                    enabled: false,
-                    timeToInviteSeconds: 10,
-                    inviteTimeoutSeconds: 30
+        "webchat": {
+          "chatButton": {
+            // Enable chat button to appear after webchat widget load
+            "enabled": true
+          },
+          "emojis": true,
+          "emojiList" : "😊🤗🤓🥳🤣🤩🤪🤭🤫🤨🤮🤯🧐🤬🦝🧡🤟🤲🧠🧒🧑🧔🧓🧕🤱₿🧙🧚🧛🧜🧝🧞🧟🧖🧗🧘🦓🦒🦔🦕🦖🦗🥥🥦🥨🥩🇦🇺🇫🇷🎂🛍🇨🇦🇧🇷🐉🎅🇲🇽🕯🇨🇳🐰🎥🍂👨💪🎓🔥🎃🕎💕🕉🇺🇸👩🎊🏊🏳️‍🌈👑☪🌱☘☀🏈🦃💘👰⛄🎿⚽🌎",
+          "form": {
+            "autoSubmit": false,
+            "firstname": "",
+            "lastname": "",
+            "phone":"",
+            "email":"",
+            "wrapper": "<table></table>",
+            "inputs": [
+              {
+                id: "cx_webchat_form_firstname",
+                name: "firstname",
+                maxlength: "100",
+                placeholder: "First Name",
+                label: "First Name"
               },
-                    // not supported in Genesys Cloud
-            //uploadsEnabled: true,
-            charCountEnabled: true,
-            transport: {
-            type: 'purecloud-v2-sockets',
-            dataURL: 'https://api.mypurecloud.com',
-            deploymentKey: "8b4c517d-fa22-454c-9dab-1ca7d2fdbec5",
-            orgGuid: "b969b710-80cf-4689-9bcf-e9f3befa8e05",
-            chatButton: {
-                enabled: true,
-                template:
-                  "<div class='start-button' data-tooltip='Power outage chat'></div>",
-                effect: "fade",
-                openDelay: 1000,
-                effectDuration: 300,
-                hideDuringInvite: true,
+
+              {
+                id: "cx_webchat_form_lastname",
+                name: "lastname",
+                maxlength: "100",
+                placeholder: "Last Name",
+                label: "Last Name"
+              },
+
+              {
+                id: "cx_webchat_form_phone",
+                name: "phone",
+                maxlength: "100",
+                placeholder: "Phone",
+                label: "Phone"
+              },
+
+              {
+                id: "cx_webchat_form_email",
+                name: "email",
+                maxlength: "100",
+                placeholder: "Email",
+                label: "Email"
+              },
+            ]
+          },
+          "transport": {
+            "type": "purecloud-v2-sockets",
+            "dataURL": "https://api.mypurecloud.com",
+            "deploymentKey": "8b4c517d-fa22-454c-9dab-1ca7d2fdbec5",
+            "orgGuid": "b969b710-80cf-4689-9bcf-e9f3befa8e05",
+            "interactionData": {
+              "routing": {
+                "targetType": "QUEUE",
+                "targetAddress": "ACME_Support",
+                "priority": 2
               }
             }
+          },
+          "userData": {
+            "addressStreet": "",
+            "addressCity": "",
+            "addressPostalCode": "",
+            "addressState": "",
+            "phoneNumber": "",
+            "customField1Label": "",
+            "customField1": "",
+            "customField2Label": "",
+            "customField2": "",
+            "customField3Label": "",
+            "customField3": ""
           }
-          
         }
-      };
+      }
+    };
 
-   </script>
-
-   <!-- Load CXBus and the widgets-core plugin -->
-   <script src="https://apps.mypurecloud.com/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.com/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
-
-   <!-- Optional: Use CXBus to create plugins, subscribe to events, or call commands -->
-   <script type="text/javascript">
-
-    const customPlugin = CXBus.registerPlugin('Custom');
-
-    customPlugin.subscribe('WebChatService.started', function (e) {
-      console.log('Chat started', e);
-    });
-
-    customPlugin.subscribe('WebChatService.ended', function (e) {
-      console.log('Chat ended', e);
-    });
+    const customPlugin = CXBus.registerPlugin('Custom', {});
+  
+    CXBus.subscribe('WebChat.ready', function () {
+      customPlugin.command('WebChat.open', {});
+    })
   </script>
-
-
-
+  <script src="https://apps.mypurecloud.com/widgets/9.0/cxbus.min.js"
+    onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.com/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
   
-
-  <script type="text/javascript">
-		function getAdvancedConfig() {
-			return {
-				form: {
-					autoSubmit: false,
-					//firstname: 'Tatjana',
-					//lastname: 'Knezevic',
-				//	email: 'overthe rainbow@startelecom.ca',
-					//phone: '4167205737'
-				},
-				formJSON: {
-					wrapper: '<table></table>',
-					inputs: [
-						// Default fields
-						{
-							id: 'cx_webchat_form_firstname',
-							name: 'firstname',
-							maxlength: '100',
-							placeholder: 'Optional',
-							label: 'Firstname',
-              validate: function (event, form, input, label, $, CXBus, Common) {
-                    if (input) {
-                        if (input.val() && input[0].checked) {
-                            label[0].innerHTML = "Firstname";
-                            return true;
-                        } else {
-                            label[0].innerHTML = "<span style=\"color:red\">Firstname</span>";
-                            return false;
-                        }
-                    } else {
-                        // first load
-                        return false;
-                    }
-                }
-						},
-						//{
-							//id: 'cx_webchat_form_lastname',
-							//name: 'lastname',
-							//maxlength: '100',
-							//placeholder: 'Optional',
-							//label: 'Lastname'
-						//},
-						{
-							id: 'cx_webchat_form_email',
-							name: 'postalcode',
-							maxlength: '100',
-							placeholder: 'Optional',
-							label: 'Postal Code'
-						},
-            {
-            id:"cx_webchat_form_enquirytype",
-            name:"reason",
-            type:"select",
-            label:"Reason",
-            options:[
-                {
-                    text:"Known Outage",
-                    value:"Known Outage"
-                },
-                {
-                    text:"Unknown Outage",
-                    value:"Unknown Outage",
-                    selected:true
-                },
-                {
-                    text:"Other",
-                    value:"Other"
-                }
-                
-              ]
-            },
-            {
-                "id": "cx_webchat_form_sf_searchvalue",
-                "name": "CustomField",
-                "maxlength": "100",
-                "placeholder": "Custom data placeholder",
-                "label": "I agree that chats may be monitored and used for training purposes",
-                "value": "SomeCoolData",
-                "type": "checkbox",
-                "checked": false,
-                "validate": function (event, form, input, label, $, CXBus, Common) {
-                    if (input) {
-                        if (input.val() && input[0].checked) {
-                            label[0].innerHTML = "I agree that chats may be monitored and used for training purposes";
-                            return true;
-                        } else {
-                            label[0].innerHTML = "<span style=\"color:red\">I agree that chats may be monitored and used for training purposes</span>";
-                            return false;
-                        }
-                    } else {
-                        // first load
-                        return false;
-                    }
-                }
-            }
-						//{
-							//id: 'cx_webchat_form_email',
-						//	name: 'email',
-						//	maxlength: '100',
-						//	placeholder: 'Optional',
-						//	label: 'Email'
-					//	},
-						// Custom Fields
-            
-				//		{
-					//		id: 'custom_field_1',
-          //               type: "checkbox",
-					//	    name: 'customField1',
-					//		maxlength: '100',
-					//		placeholder: 'Custom Data',
-					//		label: 'Send Transcript',
-					//		value: 'My Custom Value'
-				//	}
-					]
-				}
-			};
-		} 
-	</script>
   
-
-
+  
 </body>
+
 </html>
