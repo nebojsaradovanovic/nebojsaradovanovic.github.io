@@ -43,24 +43,16 @@
                 id: "cx_webchat_form_firstname",
                 name: "firstname",
                 maxlength: "100",
-                placeholder: "First Name",
-                label: "First Name"
+                placeholder: "Name",
+                label: "Name"
               },
 
               {
-                id: "cx_webchat_form_lastname",
-                name: "lastname",
+                id: "cx_webchat_form_id",
+                name: "id",
                 maxlength: "100",
-                placeholder: "Last Name",
-                label: "Last Name"
-              },
-
-              {
-                id: "cx_webchat_form_phone",
-                name: "phone",
-                maxlength: "100",
-                placeholder: "Phone",
-                label: "Phone"
+                placeholder: "Medic Alert ID",
+                label: "Medic Alert ID"
               },
 
               {
@@ -70,6 +62,31 @@
                 placeholder: "Email",
                 label: "Email"
               },
+
+              {
+                id:"cx_webchat_form_enquirytype",
+                name:"reason",
+                type:"select",
+                label:"Reason",
+                options:[
+                    {
+                        text:"Known Outage",
+                        value:"Known Outage"
+                    },
+                    {
+                        text:"Unknown Outage",
+                        value:"Unknown Outage",
+                        selected:true
+                    },
+                    {
+                        text:"Other",
+                        value:"Other"
+                    }
+                    
+                  ]
+                },
+
+              
             ]
           },
           transport: {
