@@ -37,6 +37,15 @@
     animation: bot-to-top 2s ease-out;
 }
 
+.startelecom-custom .cx-widget.cx-theme-light .cx-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(df5c0634844bc2a2085d.svg);
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+}
+
 /* Changes primary buttons to TH brand green */
 .startelecom-custom .cx-widget.cx-theme-light .cx-btn-primary {
     background-color: #005D55;
