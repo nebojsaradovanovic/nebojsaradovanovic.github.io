@@ -23,7 +23,7 @@
           chatButton: {
             enabled: true,
             template:
-              "",
+              "<div class='start-button' data-tooltip='Power outage chat'></div>",
             effect: "fade",
             openDelay: 1000,
             effectDuration: 300,
@@ -101,11 +101,11 @@
       }
     };
 
-    const customPlugin = CXBus.registerPlugin('Custom', {});
+    //const customPlugin = CXBus.registerPlugin('Custom', {});
   
-    CXBus.subscribe('WebChat.ready', function () {
-      customPlugin.command('WebChat.open', {});
-    })
+    //CXBus.subscribe('WebChat.ready', function () {
+      //customPlugin.command('WebChat.open', {});
+    //})
   </script>
   <script src="https://apps.mypurecloud.com/widgets/9.0/cxbus.min.js"
     onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.com/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
