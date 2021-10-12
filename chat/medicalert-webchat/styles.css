@@ -1,7 +1,7 @@
 /* Set chat bubble to lighter TH brand green */
-.startelecom-custom .cx-webchat.cx-theme-light .cx-message.cx-them .cx-bubble {
-    background-color: #E8F5F2;
-}
+/*.startelecom-custom .cx-webchat.cx-theme-light .cx-message.cx-them .cx-bubble {
+/*    background-color: #E8F5F2;
+/*}
 
 /* Sets chat arrow to same color as chat bubble */
 .startelecom-custom .cx-webchat.cx-theme-light .cx-message.cx-them .cx-bubble-arrow svg * {
@@ -40,7 +40,7 @@
 
 .startelecom-custom .cx-widget.cx-theme-light .cx-titlebar .cx-icon svg * {
 
-    
+    fill:white;
     opacity:0;
     
     
