@@ -24,6 +24,19 @@
 }
 
 
+.startelecom-custom .cx-widget.cx-theme-light .cx-side-button {
+    width: 60px;
+    height: 60px;
+    background-image: url(YJWdW201.svg);
+    background-size: 50px 50px;
+    background-position: 4px 3px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    text-align: center;
+    box-shadow: none;
+    animation: bot-to-top 2s ease-out;
+}
+
 .startelecom-custom .cx-widget.cx-theme-light .cx-titlebar .cx-icon svg * {
 
     fill:white;
