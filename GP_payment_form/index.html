@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+​
+<head>
+  
+  <title>GP Form | Star Telecom</title>
+
+</head>
+​
+​
+<body>
+  
+ 
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="rxp-hpp.js"></script>
+  <script>
+    $(document).ready(function() {
+      $.getJSON("sdkRequestEndpoint", function(jsonFromRequestEndpoint) {
+        RealexHpp.setHppUrl("https://pay.sandbox.realexpayments.com/pay");
+        RealexHpp.embedded.init("payButtonId", "iframeId", "responseEndpoint", jsonFromRequestEndpoint);
+        if (window.addEventListener) {
+          window.addEventListener('message', receiveMessage, false);
+        } else {
+          window.attachEvent('message', receiveMessage);
+        }
+      });
+    });
+  </script>
+</body>
+​
+</html>
