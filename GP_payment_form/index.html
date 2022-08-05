@@ -5,18 +5,16 @@
   <title>GP Form | Star Telecom</title>
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <script src="rxp-hpp.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="rxp-hpp.js"></script>
   <script>
-    $(document).ready(function() {
-      $.getJSON("sdkRequestEndpoint", function(jsonFromRequestEndpoint) {
-        RealexHpp.setHppUrl("https://pay.sandbox.realexpayments.com/pay");
-        RealexHpp.embedded.init("payButtonId", "iframeId", "responseEndpoint", jsonFromRequestEndpoint);
-        if (window.addEventListener) {
-          window.addEventListener('message', receiveMessage, false);
-        } else {
-          window.attachEvent('message', receiveMessage);
-        }
+      $(document).ready(function() {
+        $.getJSON("sdkRequestEndpoint", function(jsonFromRequestEndpoint) {
+          RealexHpp.setHppUrl("https://pay.sandbox.realexpayments.com/pay");
+          // When using full page redirect your Response URL must be an absolute link
+          RealexHpp.redirect.init("payButtonId", "https://www.example.com/responseUrl", jsonFromRequestEndpoint);
+        });
       });
-    });
   </script>
 </head>
 <body>
