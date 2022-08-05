@@ -11,7 +11,7 @@
         RealexHpp.setHppUrl('https://pay.sandbox.realexpayments.com/pay');
         // get the HPP JSON from the server-side SDK
         $(document).ready(function () {
-            $.getJSON("/examples/hpp/proxy-request.php?slug=process-a-payment", function (jsonFromServerSdk) {
+            $.getJSON("./examples/hpp/proxy-request.php?slug=process-a-payment", function (jsonFromServerSdk) {
                 RealexHpp.embedded.init(
                     "autoload",
                     "targetIframe",
