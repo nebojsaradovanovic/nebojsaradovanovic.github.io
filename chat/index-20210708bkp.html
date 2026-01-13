@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Star Genesys Cloud WebChat Demo</title>
+</head>
+
+<body>
+
+  <!--Create a Widgets configuration object-->
+  <script type="text/javascript">
+
+    window._genesys = {
+      widgets: {
+        "main": {
+          // Set theme to provided Genesys light theme
+          "theme": "light"
+        
+        },
+        webchat: {
+              transport: {
+            "uploadsEnabled": true,
+            type: 'purecloud-v2-sockets',
+            dataURL: 'https://api.mypurecloud.com',
+            deploymentKey: "6b1451d3-7eeb-4acd-9df2-85d1077841e0",
+            orgGuid: "b969b710-80cf-4689-9bcf-e9f3befa8e05",
+            interactionData: {
+              routing: {
+                targetType: "QUEUE",
+                targetAddress: "Demo_CHAT With Callback",
+                priority: 2
+              }
+            }
+          }
+          
+        }
+      }
+    };
+
+   </script>
+
+   <!-- Load CXBus and the widgets-core plugin -->
+   <script src="https://apps.mypurecloud.com/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.com/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
+
+   <!-- Optional: Use CXBus to create plugins, subscribe to events, or call commands -->
+   <script type="text/javascript">
+
+    const customPlugin = CXBus.registerPlugin('Custom');
+
+    customPlugin.subscribe('WebChatService.started', function (e) {
+      console.log('Chat started', e);
+    });
+
+    customPlugin.subscribe('WebChatService.ended', function (e) {
+      console.log('Chat ended', e);
+    });
+  </script>
+
+
+
+  <button type="button" id="chat-button-simple" onclick="customPlugin.command('WebChat.open');">Start Chat (simple)</button>
+
+  <script type="text/javascript">
+		function getAdvancedConfig() {
+			return {
+				formJSON: {
+					wrapper: '<table></table>',
+					inputs: [
+						// Default fields
+						{
+							id: 'cx_webchat_form_firstname',
+							name: 'firstname',
+							maxlength: '100',
+							placeholder: 'Required',
+							label: 'Ime'
+						},
+						{
+							id: 'cx_webchat_form_lastname',
+							name: 'lastname',
+							maxlength: '100',
+							placeholder: 'Required',
+							label: 'Prezime'
+						},
+						{
+							id: 'cx_webchat_form_phone',
+							name: 'phone',
+							maxlength: '100',
+							placeholder: 'Optional',
+							label: 'Phone'
+						},
+						{
+							id: 'cx_webchat_form_subject',
+							name: 'subject',
+							maxlength: '100',
+							placeholder: 'Optional',
+							label: 'Subject'
+						},
+						// Custom Fields
+						{
+							id: 'custom_field_1',
+                            type: "checkbox",
+							name: 'customField1',
+							//maxlength: '100',
+							placeholder: 'Custom Data',
+							label: 'Send Transcript'
+							//value: 'My Custom Value'
+						}
+					]
+				}
+			};
+		}
+	</script>
+	<button type="button" id="chat-button" onclick="customPlugin.command('WebChat.open', getAdvancedConfig());">Start Chat (with data)</button>
+</body>
+</html>

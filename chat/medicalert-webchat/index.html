@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Medic Alert WebChat</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<!-- Declaring a class on the body to have higher-specificity in our CSS Selectors -->
+<body class="startelecom-custom">
+  <script>
+    window._genesys = {
+      widgets: {
+        main: {
+          // Pre-load the webchat
+          preload: ['webchat'],
+          // Set theme to provided Genesys light theme
+          theme: "light"
+        },
+        webchat: {
+          chatButton: {
+            enabled: true,
+            //template:
+            //  "<div class='start-button' data-tooltip='Power outage chat'></div>",
+            effect: "fade",
+            openDelay: 1000,
+            effectDuration: 300,
+            hideDuringInvite: true,
+          },
+          emojis: true,
+          emojiList : "😊🤗🤓🥳🤣🤩🤪🤭🤫🤨🤮🤯🧐🤬🦝🧡🤟🤲🧠🧒🧑🧔🧓🧕🤱₿🧙🧚🧛🧜🧝🧞🧟🧖🧗🧘🦓🦒🦔🦕🦖🦗🥥🥦🥨🥩🇦🇺🇫🇷🎂🛍🇨🇦🇧🇷🐉🎅🇲🇽🕯🇨🇳🐰🎥🍂👨💪🎓🔥🎃🕎💕🕉🇺🇸👩🎊🏊🏳️‍🌈👑☪🌱☘☀🏈🦃💘👰⛄🎿⚽🌎",
+          form: {
+            autoSubmit: false,
+            firstname: "",
+            lastname: "",
+            phone:"",
+            email:"",
+            wrapper: "<table></table>",
+            inputs: [
+              {
+                id: "cx_webchat_form_firstname",
+                name: "firstname",
+                maxlength: "100",
+                placeholder: "Name",
+                label: "Name"
+              },
+
+              {
+                id: "cx_webchat_form_id",
+                name: "id",
+                maxlength: "100",
+                placeholder: "Medic Alert ID",
+                label: "Medic Alert ID"
+              },
+
+              {
+                id: "cx_webchat_form_email",
+                name: "email",
+                maxlength: "100",
+                placeholder: "Email",
+                label: "Email"
+              },
+
+              {
+                id:"cx_webchat_form_enquirytype",
+                name:"reason",
+                type:"select",
+                label:"Reason",
+                options:[
+                    {
+                        text:"Option 1",
+                        value:"Option 1"
+                    },
+                    {
+                        text:"Option 2",
+                        value:"Option 2",
+                        selected:true
+                    },
+                    {
+                        text:"Other",
+                        value:"Other"
+                    }
+                    
+                  ]
+                },
+
+              
+            ]
+          },
+          transport: {
+            type: "purecloud-v2-sockets",
+            dataURL: "https://api.mypurecloud.com",
+            deploymentKey: "8b4c517d-fa22-454c-9dab-1ca7d2fdbec5",
+            orgGuid: "b969b710-80cf-4689-9bcf-e9f3befa8e05"
+
+          }
+          
+        }
+      }
+    };
+
+    //const customPlugin = CXBus.registerPlugin('Custom', {});
+    //CXBus.subscribe('WebChat.ready', function () {
+      //customPlugin.command('WebChat.open', {});
+    //})
+  </script>
+  <script src="https://apps.mypurecloud.com/widgets/9.0/cxbus.min.js"
+    onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.com/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
+  
+  
+  
+</body>
+
+</html>
